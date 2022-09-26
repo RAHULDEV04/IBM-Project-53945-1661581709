@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content
+%}
+<h1 align="center">Notes MADHAN T</h1>
+<p>
+		<b>Education</b><br>
+			Bachelor Of Computer Science and Engineering<br>
+			* Velammal Institute Of Technology,Panchetti<br>
+				06/2019 - Present, 9.50(till Sem5)<br>
+			* Higher Secondary Certificate<br>
+			  Velammal Matriculation Higher Secondary School,MUGAPERU CHENNAI<br>
+				06/2018 - 05/2019, 75%(Computer Science Group)<br>
+			* Secondary School Leaving Certificate<br>
+			  Velammal MATRIC SCHOOL MUGPERU CHENNAI <br>
+				07/2016 - 05/2017, 86.00%<br>
+		<b>Personal Details</b><br>
+			Date Of Birth: 19/04/2001<br>
+			Gender:        Male<br>
+			Father Name  : THINAGARAN
+
+			Address      : MAIN ROAD MUGAPERU Chennai-630611<br>
+			Language     : TAMIL,ENGLISH<br>
+		<b>Hard Skills</b><br>
+			JAVA[OOPS CONCEPT]: Full Professional Proficiency<br>
+			C                 : Professional Working Proficiency<br>
+			HTML & CSS        :Professional Working Proficiency<br><br><br>
+</p>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Note</button>
+  </div>
+</form>
+{% endblock %}
